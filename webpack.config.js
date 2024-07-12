@@ -7,8 +7,11 @@ module.exports = {
   },
   output: {
     filename: "index.js", // js文件输出目录
-    path: path.resolve(__dirname, "./src"), // 绝对路径 相对config/
-    clean: false,
+    path: path.resolve(__dirname, "./"), // 绝对路径 相对config/
+    library: {type: 'module'}
+  },
+  experiments: {
+    outputModule: true
   },
   module: {
     rules: [
