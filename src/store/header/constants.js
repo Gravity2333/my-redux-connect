@@ -1,1 +1,0 @@
-export const SET_HEADER_INFO = 'set_header_info'
