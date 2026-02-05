@@ -1,0 +1,26 @@
+{
+  "name": "my-redux-connect",
+  "version": "1.0.4",
+  "description": "一个redux和react的连接器",
+  "main": "./dist/index.js",
+  "module": "./dist/index.js",
+  "types": "./dist/index.d.ts",
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "packageManager": "pnpm@10.11.1",
+  "peerDependencies": {
+    "react": ">=16.8.0",
+    "react-dom": ">=16.8.0",
+    "my-sample-redux": "^0.0.5"
+  },
+  "peerDependenciesMeta": {
+    "react-dom": {
+      "optional": true
+    }
+  },
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/Gravity2333/my-redux-connect"
+  }
+}
