@@ -11,7 +11,7 @@ var __assign = (this && this.__assign) || function () {
 };
 import React from "react";
 import { createContext, useContext, useEffect, useState } from "react";
-var _Context = createContext({});
+export var _Context = createContext({});
 export function Provider(_a) {
     var children = _a.children, store = _a.store;
     return React.createElement(_Context.Provider, { value: store }, children);
@@ -19,15 +19,19 @@ export function Provider(_a) {
 export function connect(mapStateToProps, mapDispatchToProps) {
     if (mapStateToProps === void 0) { mapStateToProps = function (v) { return v; }; }
     if (mapDispatchToProps === void 0) { mapDispatchToProps = function (v) { return v; }; }
-    return function (Children) { return function () {
-        var store = useContext(_Context);
-        var _a = useState(mapStateToProps(store.getState())), storeState = _a[0], setStoreState = _a[1];
-        useEffect(function () {
-            var unsubscribe = store.subscribe(function () {
-                setStoreState(mapStateToProps(store.getState()));
-            });
-            return unsubscribe;
-        }, []);
-        return (React.createElement(Children, __assign({}, storeState, mapDispatchToProps(store.dispatch), { dispatch: store.dispatch })));
-    }; };
+    return function (Children) {
+        return React.memo(function (props) {
+            var store = useContext(_Context);
+            var _a = useState(mapStateToProps(store.getState())), storeState = _a[0], setStoreState = _a[1];
+            useEffect(function () {
+                var unsubscribe = store.subscribe(function () {
+                    setStoreState(mapStateToProps(store.getState()));
+                });
+                return unsubscribe;
+            }, []);
+            return (React.createElement(Children, __assign({}, storeState, mapDispatchToProps(store.dispatch), { dispatch: store.dispatch }, (props || {}))));
+        });
+    };
 }
+export * from './hooks/useDispatch';
+export * from './hooks/useSelector';

@@ -1,6 +1,6 @@
 {
   "name": "my-redux-connect",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "一个redux和react的连接器",
   "main": "./dist/index.js",
   "module": "./dist/index.js",
